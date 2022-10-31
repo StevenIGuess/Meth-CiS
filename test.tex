@@ -1,0 +1,85 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc} %Umlaute können direkt verwendet werden
+\usepackage[ngerman]{babel} %Silbentrennung und Sprache: deutsch
+\usepackage{lmodern}        %Schrift (Suche in PDF nach Umlautwörtern)
+\usepackage[T1]{fontenc}    %Silbentrennung bei Umlauten (mit lmodern)
+ 
+\usepackage{amsmath,amssymb,amsthm,bbm} %AMS-Pakete
+\theoremstyle{definition}               %Definitionen nicht "kursiv"
+\newtheorem{bemerkung}{Bemerkung}
+\newtheorem{problem}{Aufgabe}
+\theoremstyle{plain}                    %Sätze etc. "kursiv"
+\newtheorem{satz}{Satz}
+\newtheorem{lemma}{Lemma}
+\newenvironment{beweis}[1][Beweis]{\begin{proof}[#1]}{\end{proof}}
+ 
+% absolute value and norm with correct spacing from the amsmath docs:
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+% many people define short commands for the set of integers and so on:
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\id}{\mathbbm1} %many use blackboard bold 1 for identity
+\newcommand{\mathopf}[1]{{\operatorfont #1}} %better than mathrm for:
+\newcommand{\ee}{\mathopf e}                 %Euler e
+\newcommand{\ii}{\mathopf i}                 %imaginary (unit) i
+\newcommand{\dd}{\mathopf d}                 %differential d
+% correct spacing for a set with properties (better than \{x|x\in X\}):
+\newcommand{\Meng}[2]{\left\{#1\mathrel{}\middle|\mathrel{}#2\right\}}
+% The quotient set (group...) needs different shifting for subscripts;
+% we define an optional argument for the negative horizontal space,
+% because \! is sometimes not the right amount (before and after /):
+\newcommand{\quot}[3][\!]{\mathchoice%
+  {\left.\raisebox{.2em}{$\displaystyle#2$}#1\middle/#1%
+      \raisebox{-.2em}{$\displaystyle#3$}\right.}%
+  {\left.\raisebox{.2em}{$#2$}#1\middle/#1%
+      \raisebox{-.2em}{$#3$}\right.}%
+  {\left.\raisebox{.08em}{$\scriptstyle#2$}#1\middle/#1%
+      \raisebox{-.08em}{$\scriptstyle#3$}\right.}%
+  {\left.\raisebox{.05em}{$\scriptscriptstyle#2$}#1\middle/#1%
+      \raisebox{-.05em}{$\scriptscriptstyle#3$}\right.}%
+}
+ 
+\title{Geschenke}
+\author{Osterhase}
+\date{24. Dezember 2019}
+ 
+\begin{document}
+\maketitle
+\section*{Abstract}
+Wir suchen Schönheit, so war es auch bei \cite{wei}, und finden sie in
+Satz \ref{satz:schoen}.
+ 
+\section{Einleitung}
+Die vielleicht schönste Formel ergibt sich aus den Definitionen der
+Exponentialreihe und $\pi$.
+ 
+\begin{satz}[Schöne Feststellung]\label{satz:schoen}
+  Es gilt
+  \begin{equation*}
+    \ee^{\ii\pi}+1=0. %Manche mögen Abstand \, vor Satzzeichen.
+  \end{equation*}
+\end{satz}
+ 
+\begin{beweis}
+  \begin{enumerate}
+  \item Man erinnert, dass $\pi$ definiert ist als das Doppelte der
+    kleinsten positiven Nullstelle von $\cos$.
+  \item Die Periodizität von $\sin$ und $\cos$ ist eine übliche
+    Übungsaufgabe.
+  \item Die Aussage folgt dann direkt aus den Definitionen. \qedhere
+    % \qedhere weil der Beweis mit enumerate (equation etc.) endet.
+    % (Pakete, die diesen Fall automatisieren, haben auch Nachteile.)
+  \end{enumerate}
+\end{beweis}
+ 
+\begin{thebibliography}{Wei}
+\bibitem[Wei]{wei}
+  Weihnachtsmann,
+  Geschenke für die Welt,
+  Wichtelverlag, 2018.
+\end{thebibliography}
+\end{document}
