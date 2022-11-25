@@ -1,0 +1,129 @@
+\documentclass[a4paper,tikz]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel} %Silbentrennung und Sprache: deutsch
+\usepackage{lmodern}        %Schrift (Suche in PDF nach Umlautwörtern)
+\usepackage[T1]{fontenc}    %Silbentrennung bei Umlauten (mit lmodern)
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+ \usepackage[outline]{contour} % glow around text
+\usepackage{amsmath,amssymb,amsthm,bbm} %AMS-Pakete
+\usepackage{tikz}
+\usepackage{physics}
+\usepackage{mathtools}
+
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{bending} % for arrow head angle
+\contourlength{1.0pt}
+
+
+\tikzset{>=latex} % for LaTeX arrow head
+\usepackage{xcolor}
+\colorlet{myblue}{blue!65!black}
+\colorlet{mydarkblue}{blue!50!black}
+\colorlet{myred}{red!65!black}
+\colorlet{mydarkred}{red!40!black}
+\colorlet{veccol}{green!70!black}
+\colorlet{vcol}{green!70!black}
+\colorlet{xcol}{blue!85!black}
+\colorlet{mypurple}{blue!50!red!90!black!60}
+\tikzstyle{vector}=[->,very thick,line cap=round]
+\tikzstyle{xline}=[myblue,very thick]
+\tikzstyle{yzp}=[canvas is zy plane at x=0]
+\tikzstyle{xzp}=[canvas is xz plane at y=0]
+\tikzstyle{xyp}=[canvas is xy plane at z=0]
+\def\tick#1#2{\draw[thick] (#1) ++ (#2:0.12) --++ (#2-180:0.24)}
+\def\N{100}
+
+\newcommand\IVeq{\stackrel{\mathclap{\normalfont\mbox{iv}}}{=}}
+\newcommand\EXeq{\stackrel{\mathclap{\normalfont\mbox{!}}}{=}}
+\newcommand*{\QED}{\null\nobreak\hfill\ensuremath{\square}}%
+\newcommand{\crel}[1]{%
+  \global\setbox1=\hbox{$#1$}%
+  \global\dimen1=0.5\wd1
+  \mathrel{\hbox to\dimen1{$#1$\hss}}&\mathrel{\mspace{-\thickmuskip}\hbox to\dimen1{}}%
+}
+
+\title{Blatt04}
+\author{Toma-Stefan Cezar (Matr. 7678219), Elham Amini (Matr. 7606587)}
+\date{November 2022}
+
+\begin{document}
+
+\maketitle
+Neue Abgabegruppen!
+\tableofcontents
+\newpage
+
+\section{Aufgabe 1}
+\subsection{Teil A}
+Ja die Folge $(a_n)_{n \geq 1}$ ist beschränkt, da sie aus zwei weiteren Folgen besteht welche beide beschränkt sind. $(-1)^n$ ist beschränkt da es sich um eine Alternierende Folge handelt, welche die Kriterien $\forall (a_n)_{n \geq 1} \exists S :  a_n < S$ (mit S > 1) und $\forall (a_n)_{n \geq 1} \exists D :  a_n \leq D$ (mit D > 1) erfüllt. Bei $\big( \frac{1}{2} \big)^n$ handelt es sich um eine geometrische Folge $z^n$, wobei $z < 1$, somit ist die Folge konvergent, woraus folgt das diese auch beschränkt ist.
+
+\subsection{Teil B}
+
+
+Nein die Folge $(x_n)_{n \in \mathbb{N}}$ konvergiert nicht, da der obere Teil $(-3)^n$ alternierend ist und sich somit kein Grenzwert bestimmen lässt, außerdem ist  der untere Teil $3^n - \pi$ nicht begrenzt und divergiert somit nach $+ \infty$, daher ist die gesamte Folge $x_n$ nicht Konvergent.
+
+
+\section{Aufgabe 2}
+
+\subsection{Teil A}
+
+Der Term $-3n^4$ hat in der Folge $\frac{6-10n^2-3n^4}{7n^3 + 2n^2 + n + 4 }$ den höchsten Exponenten und wächst daher am schnellsten, somit kann der Rest für den Limes ignoriert werden. $-3n^4$ ist monoton fallend, da die Ungleichung
+
+\[-3n^4 > -3(n+1)^4\]
+\[-3n^4 + 3(n+1)^4  > 0 \]
+\[-3n^4 + 3(n^4+4n^3+6n^2+4n+1)  > 0 \]
+\[-3n^4 + 3n^4 + 12n^3 + 18n^2 + 12n + 1 > 0 \]
+\[12n^3 + 18n^2 + 12n + 1 > 0 \]
+\\
+für alle $n \geq 0$ gilt. Da es sich bei $-3n^4$ um einen negativen ganzrationalen Term mit ausschließlich geraden Exponenten handelt, ist dieser nur nach oben beschränkt. Somit divergiert die Folge nach $- \infty$, da sie monoton fallend und nicht (nach unten) beschränkt ist.
+
+\[\lim_{n \rightarrow \infty} -3n^4 \, \mathbf{Divergiert}\]
+\\
+Somit ist auch die Folge $\frac{6-10n^2-3n^4}{7n^3 + 2n^2 + n + 4 }$ divergent.
+
+\[\lim_{n \rightarrow \infty} \frac{6-10n^2-3n^4}{7n^3 + 2n^2 + n + 4 } \, \mathbf{Divergiert}\]
+
+\subsection{Teil B}
+
+\[ x_n = \frac{3 \cdot (2^n + 6^n) + 1}{3^n + 6^n} \]
+\[ = \frac{3 \cdot 2^n + 3 \cdot 6^n + 1}{3^n + 6^n}\]
+\[ = \frac{6^n (\frac{3}{3^n} + 3 + \frac{1}{6^n})}{6^n(\frac{1}{2^n} + 1 )}\]
+\[ = \frac{\frac{3}{3^n} + 3 + \frac{1}{6^n}}{\frac{1}{2^n} + 1 }\]
+Die Folge $a_n = x^n$ mit $x \in \mathbb{R}, x > 0$ ist nicht beschränkt und monoton steigend, somit divergiert diese nach $+ \infty$, daraus folgt das der Kehrwert verschwindend klein wird. 
+
+\[ \lim_{n \rightarrow \infty} \frac{\frac{3}{3^n} + 3 + \frac{1}{6^n}}{\frac{1}{2^n} + 1 } = \frac{3}{1} = 3\]
+
+
+Da die Folge $x_n = \frac{3 \cdot (2^n + 6^n) + 1}{3^n + 6^n}$ einen Grenzwert hat, ist sie auch Konvergent.
+
+\section{Aufgabe 3}
+
+
+
+\subsection{Teil B}
+
+\[ \lim_{n \rightarrow \infty} \sqrt{n^2 + 2022} - n  \]
+\[ \Longleftrightarrow \lim_{n \rightarrow \infty} (\sqrt{n^2 + 2022} - n) \cdot \frac{\sqrt{n^2 + 2022} + n}{\sqrt{n^2 + 2022} + n} \]
+\[ \Longleftrightarrow \lim_{n \rightarrow \infty} \frac{n^2 + 2022 - n^2}{\sqrt{n^2 + 2022} + n}\]
+\[ \Longleftrightarrow \lim_{n \rightarrow \infty} \frac{2022}{\sqrt{n^2 + 2022} + n} = 0\]
+\\
+Da der untere Teil schneller als der obere Teil (Konstante) wächst, konvergiert die Folge mit dem Grenzwert 0.
+
+\subsection{Teil C}
+
+\[ \lim_{n \rightarrow \infty} (\sqrt{n^4 + 3n^2} - \sqrt{n^4-81})\]
+\[ \Longleftrightarrow \lim_{n \rightarrow \infty} (\sqrt{n^4 + 3n^2} - \sqrt{n^4-81}) \cdot \frac{\sqrt{n^4 + 3n^2} + \sqrt{n^4-81}}{\sqrt{n^4 + 3n^2} + \sqrt{n^4-81}}\]
+\[ \Longleftrightarrow \lim_{n \rightarrow \infty} \frac{n^4+3n^2-n^4-81}{\sqrt{n^4 + 3n^2} + \sqrt{n^4-81}}\]
+\[ \Longleftrightarrow \lim_{n \rightarrow \infty} \frac{3n^2-81}{\sqrt{n^4 + 3n^2} + \sqrt{n^4-81}}\]
+\[ \Longleftrightarrow \lim_{n \rightarrow \infty} \frac{n^2(3-\frac{81}{n^2})}{n^2\sqrt{1+ \frac{3}{n^2}} + n^2 \sqrt{1-\frac{81}{n^4}}}\]
+\[ \Longleftrightarrow \lim_{n \rightarrow \infty} \frac{n^2(3-\frac{81}{n^2})}{n^2 \bigg( \sqrt{1+ \frac{3}{n^2}} + \sqrt{1-\frac{81}{n^4}} \bigg) }\]
+
+Da mit $\lim_{n \rightarrow \infty}$ die Brüche $\frac{3}{n^2} \rightarrow 0$, $\frac{81}{n^2} \rightarrow 0$ und $\frac{81}{n^4} \rightarrow 0$ :
+
+\[ \Longleftrightarrow \lim_{n \rightarrow \infty} \frac{n^2(3)}{n^2 \big( \sqrt{1} + \sqrt{1} \big) }\]
+\[ \Longleftrightarrow \lim_{n \rightarrow \infty} \frac{3{n^2}}{1 + 1} = \frac{3}{2}\]
+
+\end{document}
+
+
+ 
