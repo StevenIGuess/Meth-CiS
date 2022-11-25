@@ -1,0 +1,184 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel} %Silbentrennung und Sprache: deutsch
+\usepackage{lmodern}        %Schrift (Suche in PDF nach Umlautwörtern)
+\usepackage[T1]{fontenc}    %Silbentrennung bei Umlauten (mit lmodern)
+ \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+ 
+\usepackage{amsmath,amssymb,amsthm,bbm} %AMS-Pakete
+
+\usepackage{mathtools}
+
+\newcommand\IVeq{\stackrel{\mathclap{\normalfont\mbox{iv}}}{=}}
+\newcommand\EXeq{\stackrel{\mathclap{\normalfont\mbox{!}}}{=}}
+\newcommand*{\QED}{\null\nobreak\hfill\ensuremath{\square}}%
+\newcommand{\crel}[1]{%
+  \global\setbox1=\hbox{$#1$}%
+  \global\dimen1=0.5\wd1
+  \mathrel{\hbox to\dimen1{$#1$\hss}}&\mathrel{\mspace{-\thickmuskip}\hbox to\dimen1{}}%
+}
+
+\title{Blatt02}
+\author{Toma-Stefan Cezar (Matr. 7678219), Elham Amini (Matr. 7606587)}
+\date{November 2022}
+
+\begin{document}
+
+\maketitle
+Neue Abgabegruppen!
+\tableofcontents
+\newpage
+
+\section{Aufgabe 1A}
+
+Beweisen Sie durch vollständige Induktion:
+\[ \forall n \in \mathbb{N},n \geq 1 :  \sum_{k=1}^n k(k+1) = \frac{1}{3}n(n+1)(n+2)\]
+
+\subsection{Induktionsanfang}
+Die Aussage gilt für $n=1$, da
+\[ \sum_{k=1}^1 k(k+1) = \frac{1}{3} (1 + 1)(1 + 2) \]
+\[ 1(1+1) = \frac{6}{3} \]
+\[ 2 = 2 \]
+
+\subsection{Induktionsschritt}
+
+\[ z.z:  \sum_{k=1}^{n+1} k(k+1) \EXeq \frac{1}{3}(n+1)(n+2)(n+3) \]
+\newline 
+Angenommen die Induktionsvoraussetzung iv $ : \sum_{k=1}^n k(k+1) = \frac{1}{3}n(n+1)(n+2)$ stimmt.
+
+\[ \sum_{k=1}^{n+1} k(k+1) = (\sum_{k=1}^{n} k(k+1)) + (n+1)(n+2) \IVeq \frac{1}{3}n(n+1)(n+2) + (n+1)(n+2)\] 
+\[ = \frac{1}{3}n(n+1)(n+2) + (n+1)(n+2) \]
+\[ = (n+1)(n+2)(\frac{1}{3}n+1)\]
+\[ = \frac{1}{3}(n+1)(n+2)(n+3)\] 
+
+Somit ist der Induktionsschritt $\sum_{k=1}^{n+1} k(k+1) = \frac{1}{3}(n+1)(n+2)(n+3)$ beweisen. QED
+\QED
+
+\newpage
+
+\section{Aufgabe 1B}
+
+Beweisen Sie durch vollständige Induktion:
+\[ \forall n \in \mathbb{N},n \geq 4 :  2n \leq n^2 - 1 \leq 2^n -1\]
+
+\subsection{Teil 1}
+
+\subsubsection{Induktionsanfang}
+Die Aussage gilt für $n=4$, da
+\[2 \cdot 4 \leq 4^2 - 1 \Longleftrightarrow  8 \leq 15\]
+
+\subsubsection{Induktionsschritt }
+
+\[ z.z:  2(n+1) \leq (n+1)^2 - 1 \]
+\newline 
+Angenommen die Induktionsvoraussetzung iv $ 2n \leq n^2 - 1 $ stimmt.
+
+\[ 2(n+1) \leq (n+1)^2 - 1\]
+\[ \Longleftrightarrow 2n+2 \leq n^2 + 2n\]
+\[ \IVeq (n^2-1)+2 \leq n^2 + 2n\]
+\[ \Longleftrightarrow n^2+1 \leq n^2 + 2n\]
+\[ \Longleftrightarrow 1 \leq 2n\]
+\\
+Diese Aussage ist erfüllt, da $2n$ für $n \geq 4$ immer größer ist.
+
+
+\subsection{Teil 2}
+
+\subsubsection{Induktionsanfang}
+Die Aussage gilt für $n=4$, da
+\[ 4^2 - 1 \leq 2^4 -1 \Longleftrightarrow 15 \leq 15\]
+
+\subsubsection{Induktionsschritt }
+
+\[ z.z: (n+1)^2 - 1 \leq 2^{n+1} - 1 \]
+\newline 
+Angenommen die Induktionsvoraussetzung iv $ n^2 - 1 \leq 2^n -1 \Longrightarrow n^2 \leq 2^n$ stimmt.
+\[ (n+1)^2 - 1 \leq 2^{n+1} - 1 \]
+\[ \Longleftrightarrow n^2+2n \leq 2^n \cdot 2^1 - 1 \]
+\[ \IVeq n^2 \leq 2n^2 - 1 \]
+\[ \Longleftrightarrow n^2 + 2n + 1 \leq 2n^2\]
+\[ \Longleftrightarrow 2n + 1 \leq n^2\]\\
+Durch Ableiten erhält man.
+\[ \frac{d}{dn} 2n + 1 = 2 \]
+\[ \frac{d}{dn} n^2 = 2n \]
+\\
+Anhand dieser Gleichungen lässt sich erkennen, dass $n^2$ für $n>1$ schneller wächst als $2n + 1$, deswegen gilt die Aussage  $(n+1)^2 - 1 \leq 2^{n+1} - 1$ für alle $n \geq 4$.
+
+\subsubsection{Zusammenfassung}
+Da 2.1 und 2.2 bewiesen sind, ist auch $\forall n \in \mathbb{N},n \geq 4 :  2n \leq n^2 - 1 \leq 2^n -1$ bewiesen. QED 
+\QED
+
+
+
+
+\newpage
+
+\section{Aufgabe 2}
+
+Beweisen Sie durch vollständige Induktion:
+\[ \forall m \in \mathbb{N},m \geq 1 :  \sum_{j=0}^m (2j+1)(2j+3) = \frac{1}{3}(m+1)(4m^2 + 14m + 9)\]
+
+\subsection{Induktionsanfang}
+Die Aussage gilt für $m=1$, da
+
+
+\[\sum_{j=0}^1 (2j+1)(2j+3)  = \frac{1}{3}(1+1)(4 \cdot (1)^2 + 14 \cdot 1 + 9)\]
+
+\[ (2 \cdot 0 + 1)(2 \cdot 0 + 3) + (2 \cdot 1 + 1)(2 \cdot 1 + 3) =  \frac{1}{3}(1+1)(4 \cdot (1)^2 + 14 \cdot 1 + 9) \]
+\[ (1 \cdot 3) + (3 \cdot 5) =  \frac{1}{3} \cdot 2 \cdot (4 + 14 + 9) \]
+\[ 18 = \frac{1}{3} \cdot 54\]
+\[ 18 = 18 \]
+
+\subsection{Induktionsschritt}
+
+\begin{equation}
+ z.z:  \sum_{j=0}^{m+1} (2j+1)(2j+3) \EXeq \frac{1}{3}((m+1) + 1)(4(m+1)^2 + 14(m+1) + 9) 
+\end{equation}
+\[ = \frac{1}{3}(m+2)(4((m+1)(m+1)) + 14(m+1) + 9) \]
+\[ = \frac{1}{3}(m+2)(4((m^2 + 2m + 1^2) + 14m + 14 + 9) \]
+\[ = \frac{1}{3}(m+2)(4m^2 + 8m + 4 + 14m + 23) \]
+\[ = \frac{1}{3}(4m^3 + 8m^2 + 4m + 14m^2 + 23m + 8m^2 + 16m + 8 + 28m + 46) \]
+\[ = \frac{1}{3}(4m^3 + 30m^2 + 71m + 54) \]
+\newline 
+Angenommen die Induktionsvoraussetzung iv $ : \sum_{j=0}^m (2j+1)(2j+3) = \frac{1}{3}(m+1)(4m^2 + 14m + 9)$ stimmt.
+
+
+\begin{equation}
+\sum_{j=0}^{m+1} (2j+1)(2j+3) = \sum_{j=0}^m (2j+1)(2j+3) + (2(m+1)+1)(2(m+1)+3)
+\end{equation}
+\[ \IVeq  \frac{1}{3}(m+1)(4m^2 + 14m + 9) + (2(m+1)+1)(2(m+1)+3) \]
+\[ = \frac{1}{3} \cdot \big((m+1)(4m^2 + 14m + 9)\big) + (2m+3)(2m+5)\]
+\[ = \frac{1}{3} \cdot \big((m+1)(4m^2 + 14m + 9)\big) + (2m)^2 + 10m + 6m + 15\]
+\[ = \frac{1}{3} \cdot (4m^3 + 14m^2 + 9m + 4m^2 + 14m + 9) + 4m^2 + 10m + 6m + 15\]
+\[ = \frac{(4m^3 + 14m^2 + 9m + 4m^2 + 14m + 9)}{3}  + \frac{3 \cdot (4m^2 + 10m + 6m + 15)}{3}\]
+\[ = \frac{4m^3 + 14m^2 + 9m + 4m^2 + 14m + 9 + 12m^2 + 48m + 45)}{3}\]
+\[ = \frac{1}{3}(4m^3 + 30m^2 + 71m + 54)\]
+\endline
+Da (1) und (2) gleich sind ist der Induktionsschritt bewiesen. QED \QED
+
+
+\newpage
+\section{Aufgabe 3A}
+Seien $A,B,C,D$ Mengen und $f: A \rightarrow B$, $g: B \rightarrow C$, $h: C \rightarrow D$ Abbildungen, dann definieren die Verknüpfungen $(h \circ g) \circ f$ und $h \circ (g \circ f)$ beide die Funktion $h(g(f(x)))$ bzw. die Abbildung $h \circ g \circ f : A \rightarrow D$.
+
+\[ ((h \circ g) \circ f)(x) = ( h \circ g)(f(x)) = h(g(f(x))) \]
+\[ (h \circ (g \circ f))(x) = h((g \circ f ))(x = h(g(f(x))) \]
+\[ h \circ g \circ f : A \rightarrow D, x \mapsto (h \circ g \circ f) := h(g(f(x)))\]
+\newline
+Da beide Verknüpfungen die selbe Abbildung ergeben, ist das Verknüpfen von Abbildern assoziativ. QED
+\newline
+\QED
+
+\section{Aufgabe 3B}
+Beweis durch Gegenbeispiel: 
+Angenommen $f: A \rightarrow B$ ist surjektiv, so muss jedes Element von $A$ einem Element aus $B$ zugeordnet sein $\forall a \in A \exists b \in B : f(a) = b$. Die Abbildung $g : B \rightarrow A$ ordnet nun jedem Element aus $B$ mindestens ein Element aus $A$ zu, daher ist $(f \circ g) : B \rightarrow B = \mathrm{Id}_{B}$. Wenn $f$ nicht surjektiv ist, muss es mindestens ein Element in $B$ geben, zu welchem kein Element aus $A$ zugeordnet werden kann, somit kann das Abbild $g : B \rightarrow A $ nicht existieren, da es mindestens einem Wert aus $B$ keinen Wert zuweisen kann. QED 
+\newline
+\QED
+
+\end{document}
+
+
+
+
+
+ 
